@@ -2,7 +2,7 @@
 
 ![Background Image](assets/images/preview.jpg)
 
-##Overview
+## Overview
 
 A quick web-based photo editor. This project integrates a wide range of image processing effects—from basic adjustments and color corrections to advanced and fun effects.
 
