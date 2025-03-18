@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quick Photo Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Quick Photo Editor</h1>
+        <nav>
+          <button id="darkModeToggle">Dark Mode</button>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main-wrapper">
+      <aside class="sidebar">
+        <!-- Upload Section -->
+        <div class="upload-section">
+          <label for="uploadImage" class="upload-label">Upload Image</label>
+          <input type="file" id="uploadImage" accept="image/*" />
+        </div>
+
+        <!-- Controls Container with Collapsible Groups -->
+        <div class="controls">
+          <!-- Basic Adjustments -->
+          <div class="control-group">
+            <button type="button" class="collapsible">Basic Adjustments</button>
+            <div class="content">
+              <div class="control">
+                <label for="brightness">Brightness</label>
+                <input
+                  type="range"
+                  id="brightness"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </div>
+              <div class="control">
+                <label for="contrast">Contrast</label>
+                <input
+                  type="range"
+                  id="contrast"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </div>
+              <div class="control">
+                <label for="saturation">Saturation</label>
+                <input
+                  type="range"
+                  id="saturation"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </div>
+              <div class="control">
+                <label for="exposure">Exposure</label>
+                <input
+                  type="range"
+                  id="exposure"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </div>
+              <div class="control">
+                <label for="gamma">Gamma</label>
+                <input type="range" id="gamma" min="0" max="200" value="100" />
+              </div>
+              <div class="control">
+                <label for="temperature">Temperature</label>
+                <input
+                  type="range"
+                  id="temperature"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Color Effects -->
+          <div class="control-group">
+            <button type="button" class="collapsible">Color Effects</button>
+            <div class="content">
+              <div class="control">
+                <label for="hue">Hue</label>
+                <input type="range" id="hue" min="0" max="360" value="0" />
+              </div>
+              <div class="control">
+                <label for="grayscale">Grayscale</label>
+                <input
+                  type="range"
+                  id="grayscale"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="sepia">Sepia</label>
+                <input type="range" id="sepia" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="invert">Invert</label>
+                <input type="range" id="invert" min="0" max="100" value="0" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Effects -->
+          <div class="control-group">
+            <button type="button" class="collapsible">Advanced Effects</button>
+            <div class="content">
+              <div class="control">
+                <label for="blur">Blur</label>
+                <input type="range" id="blur" min="0" max="10" value="0" />
+              </div>
+              <div class="control">
+                <label for="rotate">Rotate (°)</label>
+                <input type="number" id="rotate" value="0" />
+              </div>
+              <div class="control">
+                <label for="crop">Crop (W x H)</label>
+                <input type="text" id="crop" placeholder="e.g., 800x600" />
+              </div>
+              <div class="control">
+                <label for="sharpness">Sharpness</label>
+                <input
+                  type="range"
+                  id="sharpness"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="clarity">Clarity</label>
+                <input type="range" id="clarity" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="noiseReduction">Noise Reduction</label>
+                <input
+                  type="range"
+                  id="noiseReduction"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="highlights">Highlights</label>
+                <input
+                  type="range"
+                  id="highlights"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="shadows">Shadows</label>
+                <input type="range" id="shadows" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="posterize">Posterize</label>
+                <input
+                  type="range"
+                  id="posterize"
+                  min="2"
+                  max="256"
+                  value="256"
+                />
+              </div>
+              <div class="control">
+                <label for="emboss">Emboss</label>
+                <input type="range" id="emboss" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="duotone">Duotone</label>
+                <input type="range" id="duotone" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="vignette">Vignette</label>
+                <input type="range" id="vignette" min="0" max="100" value="0" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra Effects -->
+          <div class="control-group">
+            <button type="button" class="collapsible">Extra Effects</button>
+            <div class="content">
+              <!-- Color Balance -->
+              <div class="control">
+                <label for="colorBalanceRed">Color Balance Red</label>
+                <input
+                  type="range"
+                  id="colorBalanceRed"
+                  min="-100"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="colorBalanceGreen">Color Balance Green</label>
+                <input
+                  type="range"
+                  id="colorBalanceGreen"
+                  min="-100"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="colorBalanceBlue">Color Balance Blue</label>
+                <input
+                  type="range"
+                  id="colorBalanceBlue"
+                  min="-100"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <!-- Split Toning -->
+              <div class="control">
+                <label for="splitToningShadowR">Split Toning Shadow R</label>
+                <input
+                  type="range"
+                  id="splitToningShadowR"
+                  min="-100"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="splitToningShadowG">Split Toning Shadow G</label>
+                <input
+                  type="range"
+                  id="splitToningShadowG"
+                  min="-100"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="splitToningShadowB">Split Toning Shadow B</label>
+                <input
+                  type="range"
+                  id="splitToningShadowB"
+                  min="-100"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="splitToningHighlightR"
+                  >Split Toning Highlight R</label
+                >
+                <input
+                  type="range"
+                  id="splitToningHighlightR"
+                  min="-100"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="splitToningHighlightG"
+                  >Split Toning Highlight G</label
+                >
+                <input
+                  type="range"
+                  id="splitToningHighlightG"
+                  min="-100"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="splitToningHighlightB"
+                  >Split Toning Highlight B</label
+                >
+                <input
+                  type="range"
+                  id="splitToningHighlightB"
+                  min="-100"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <!-- Channel Mixer -->
+              <div class="control">
+                <label for="channelMixerR0">Channel Mixer R0</label>
+                <input type="number" id="channelMixerR0" value="1" />
+              </div>
+              <div class="control">
+                <label for="channelMixerR1">Channel Mixer R1</label>
+                <input type="number" id="channelMixerR1" value="0" />
+              </div>
+              <div class="control">
+                <label for="channelMixerR2">Channel Mixer R2</label>
+                <input type="number" id="channelMixerR2" value="0" />
+              </div>
+              <div class="control">
+                <label for="channelMixerG0">Channel Mixer G0</label>
+                <input type="number" id="channelMixerG0" value="0" />
+              </div>
+              <div class="control">
+                <label for="channelMixerG1">Channel Mixer G1</label>
+                <input type="number" id="channelMixerG1" value="1" />
+              </div>
+              <div class="control">
+                <label for="channelMixerG2">Channel Mixer G2</label>
+                <input type="number" id="channelMixerG2" value="0" />
+              </div>
+              <div class="control">
+                <label for="channelMixerB0">Channel Mixer B0</label>
+                <input type="number" id="channelMixerB0" value="0" />
+              </div>
+              <div class="control">
+                <label for="channelMixerB1">Channel Mixer B1</label>
+                <input type="number" id="channelMixerB1" value="0" />
+              </div>
+              <div class="control">
+                <label for="channelMixerB2">Channel Mixer B2</label>
+                <input type="number" id="channelMixerB2" value="1" />
+              </div>
+              <!-- Tone Curve -->
+              <div class="control">
+                <label for="toneCurve">Tone Curve</label>
+                <input
+                  type="range"
+                  id="toneCurve"
+                  min="50"
+                  max="150"
+                  value="100"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Fun Effects -->
+          <div class="control-group">
+            <button type="button" class="collapsible">Fun Effects</button>
+            <div class="content">
+              <div class="control">
+                <label for="pixelate">Pixelate</label>
+                <input type="range" id="pixelate" min="0" max="50" value="0" />
+              </div>
+              <div class="control">
+                <label for="comic">Comic Effect</label>
+                <input type="range" id="comic" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="sketch">Sketch Effect</label>
+                <input type="range" id="sketch" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="watercolor">Watercolor</label>
+                <input
+                  type="range"
+                  id="watercolor"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="glow">Glow</label>
+                <input type="range" id="glow" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="mirror">Mirror</label>
+                <input type="checkbox" id="mirror" />
+              </div>
+              <div class="control">
+                <label for="swirl">Swirl</label>
+                <input type="range" id="swirl" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="kaleidoscope">Kaleidoscope</label>
+                <input
+                  type="range"
+                  id="kaleidoscope"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="mosaic">Mosaic</label>
+                <input type="range" id="mosaic" min="0" max="50" value="0" />
+              </div>
+              <div class="control">
+                <label for="solarize">Solarize</label>
+                <input type="range" id="solarize" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="retro">Retro</label>
+                <input type="range" id="retro" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="cartoon">Cartoon</label>
+                <input type="range" id="cartoon" min="0" max="100" value="0" />
+              </div>
+              <div class="control">
+                <label for="crystallize">Crystallize</label>
+                <input
+                  type="range"
+                  id="crystallize"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </div>
+              <div class="control">
+                <label for="freezeFrame">Freeze Frame</label>
+                <input
+                  type="range"
+                  id="freezeFrame"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button id="undo">Undo</button>
+          <button id="redo">Redo</button>
+          <button id="reset">Reset</button>
+          <button id="download">Download</button>
+        </div>
+      </aside>
+
+      <main class="editor">
+        <div class="canvas-wrapper">
+          <canvas id="photoCanvas"></canvas>
+        </div>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
